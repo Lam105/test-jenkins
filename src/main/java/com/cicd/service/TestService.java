@@ -13,4 +13,9 @@ public class TestService {
 	public Person getAbc() {
 		return new Person("Bob", 12);
 	}
+	
+	@GetMapping("/def")
+	public Person getDef() {
+		return new Person("Dod", 22);
+	}
 }
