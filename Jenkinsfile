@@ -1,12 +1,7 @@
-pipeline {
+node {
     def app
-	agent any
 	
-	    tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
-    }
-	stages{
+	
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
@@ -43,5 +38,4 @@ pipeline {
             app.push("latest")
         }
     }
-	}
 }
