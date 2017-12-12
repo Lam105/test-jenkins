@@ -1,11 +1,31 @@
 node {
     def app
-
+	
+	    tools {
+        maven 'Maven 3.3.9'
+        jdk 'jdk8'
+    }
+	
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
+
+
+        stage ('Initialize') {
+            steps {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                '''
+            }
+        }
+		
+	
+	stage ('Build') {
+                sh 'mvn install' 
+        }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
