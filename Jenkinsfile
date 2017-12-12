@@ -10,7 +10,7 @@ node {
 
 
         stage ('Initialize') {
-                sh '''
+                bat '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                 '''
@@ -18,7 +18,7 @@ node {
 		
 	
 	stage ('Build') {
-                sh 'mvn install' 
+                bat 'mvn install' 
         }
 
     stage('Build image') {
