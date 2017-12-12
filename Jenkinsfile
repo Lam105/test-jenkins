@@ -41,6 +41,6 @@ node {
 		
 		bat 'docker login --username=lam105 --password=hoidelamgi'
 		bat 'docker tag pipeline lam105/pipeline:abc'
-		bat 'docker push pipeline'
+		bat 'docker push lam105/pipeline'
     }
 }
