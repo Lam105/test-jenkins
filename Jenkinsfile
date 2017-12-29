@@ -1,16 +1,35 @@
 node {
     def app
+    
+    agent any
+    tools { 
+        maven 'Maven 3.3.9' 
+        jdk 'jdk8' 
+    }
+    
+    stage ('Initialize') {
+                sh '''
+                    echo "PATH = ${PATH}"
+                    echo "M2_HOME = ${M2_HOME}"
+                ''' 
+        }
 
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
     }
+    
+    stage('Maven build') {
+        /* Let's make sure we have the repository cloned to our workspace */
+
+       	sh 'mvn -Dmaven.test.failure.ignore=true install'
+    }
 
     stage('Build image') {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
-
+		
         app = docker.build("lam105/demo")
     }
 
