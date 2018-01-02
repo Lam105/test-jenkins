@@ -18,4 +18,9 @@ public class TestService {
 	public Person getDef() {
 		return new Person("Dod", 22);
 	}
+	
+	@GetMapping("/haha")
+	public Person getHaha() {
+		return new Person("haha", 22);
+	}
 }
