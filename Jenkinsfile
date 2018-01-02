@@ -48,7 +48,9 @@ node {
     }
     
     stage('Deploy to Kubernetes') {
-    	sh 'kubectl set image deployment/testapp testapp=lam105/demo'
-    	sh 'kubectl set image deployment/testapp testapp=lam105/demo:latest'
+    	sh '''
+    	sudo kubectl set image deployment/testapp testapp=lam105/demo'
+    	sudo kubectl set image deployment/testapp testapp=lam105/demo:latest'
+    	'''
     }
 }
