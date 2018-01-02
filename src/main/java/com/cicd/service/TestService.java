@@ -28,4 +28,9 @@ public class TestService {
 	public Person getHihi() {
 		return new Person("hihi", 123456);
 	}
+	
+	@GetMapping("/hoho")
+	public Person getHoho() {
+		return new Person("hoho", 321);
+	}
 }
